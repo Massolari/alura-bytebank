@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'formulario.dart';
 import 'package:bytebank/models/transferencia.dart';
 
-const _appBarTitle = "Transferencnia";
+const _appBarTitle = "Transferências";
 
 class ListaTransferencia extends StatefulWidget {
   final List<Transferencia> _transferencias = List();
@@ -65,7 +65,7 @@ class ItemTransferencia extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Icon(Icons.monetization_on),
-        title: Text('R\$ ' + _transferencia.valor.toString()),
+        title: Text('R\$ ${_transferencia.valor.toStringAsFixed(2).replaceFirst(new RegExp(r"\."), ",")}'),
         subtitle: Text(_transferencia.numeroConta.toString()),
         trailing: FlatButton(
           child: Icon(Icons.delete),
